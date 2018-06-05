@@ -7,9 +7,9 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    
-    
-	ifstream inFile(argv[1]); //Take in input file
+	
+	//Take in input file
+	ifstream inFile(argv[1]); 
 	if (!inFile) {
 		std::cerr << "Error, file required!\n";
 		return -1;
@@ -21,7 +21,8 @@ int main(int argc, char* argv[]) {
 	int counter[20] = { 0 };
 
 	std::string line;
-	while (std::getline(inFile, line) && !inFile.eof()) { //read line at a time (in case if newLine breaks!)
+	//read line at a time (in case if newLine breaks!)
+	while (std::getline(inFile, line) && !inFile.eof()) {
 		std::istringstream ss(line);
 		std::string token;
         
@@ -35,7 +36,7 @@ int main(int argc, char* argv[]) {
 				stringstream(token) >> num;
 				counter[num] += 1;
 			}
-			else{//(element not valid, as in error in input)
+			else //Invalid element
 				std::cerr << "Error, (" << token << ") is invalid. Exiting" << endl;
 				return -1;
 			}
@@ -48,8 +49,6 @@ int main(int argc, char* argv[]) {
             return 0;
         }
     }
-    
-    std::cerr << "Error, no elements found" << endl;
-    return -1;
-    
-	}
+    	std::cerr << "Error, no elements found" << endl;
+    		return -1;
+}
