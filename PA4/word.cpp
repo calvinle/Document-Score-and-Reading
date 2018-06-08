@@ -456,7 +456,7 @@ bool Consanant(string s, size_t i){
 	return false;
 }
 
-string Region1(string s){//knee
+string Region1(string s){
 	if (s.size() > 3){
 		for (size_t i=0; i < s.size(); i++){
 			if (i < s.size()-1 && Vowel(s, i) == true && Consanant(s, i+1) == true){
@@ -471,7 +471,7 @@ string Region2(string s){
 	return Region1(Region1(s));
 }
 
-bool shortSyl(string s){//study
+bool shortSyl(string s){
 	if (s.size() == 2 && Vowel(s,0) == true && Consanant(s,1) == true){
 		return true;
 	}
