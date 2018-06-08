@@ -36,21 +36,11 @@ int main(int argc, char* argv[]) {
 	
 	vector<string> newWords = capitalCheck(words);
 	
-	/*
-	for (size_t i = 0; i < newWords.size(); i++){
-		if (newWords[i][0] != '+' && isAcro(newWords[i]) == false && 
-		hasDigit(newWords[i]) == false && newWords[i].size() > 2){
-			stemAlg(newWords[i]);
-		}
-	}
-	*/
-	
 	sort(newWords.begin(), newWords.end());
 	if (newWords.empty()) {
 		cout << "Nothing!" << endl;
 		return -1;
 	}
-	
 	
 	for (size_t i=0; i < newWords.size(); i++){
 		int dup = 1;	//First encounter of word = 1
@@ -63,7 +53,5 @@ int main(int argc, char* argv[]) {
 		if (newWords[i] != ""){ cout << newWords[i] << " " << dup << endl; }
 	}
 	
-	
-
 	return 0;
 }
