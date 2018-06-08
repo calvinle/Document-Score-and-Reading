@@ -1,14 +1,14 @@
 On top of dividing strings by whitespace, divide strings by punctuation.
 "document!" (excluding quotation marks) results in "document" and "!".
 
-• Consecutive punctation strings (e.g: "...?!") are grouped together.
+• Consecutive punctation strings (e.g: "...?!") are grouped together. <br/>
 • Apostrophes do not break words. For the purposes of this assignment, apostrophes should
 be treated as alphanumeric characters. For example, can’t and program’s are single
-words.
+words.<br/>
 • A comma is not a punctuation mark if it occurs between two digits. For example, 20,000
-should be considered a single word.
+should be considered a single word.<br/>
 • A period does not break a string if it occurs both (1) before a digit and (2) after a digit or
-a space. 2.0 is a single string; so is .01
+a space. 2.0 is a single string; so is .01<br/>
 
 Capitalization:
 If the first letter in a word is uncapitalized, nothing is changed (e.g. it remains
