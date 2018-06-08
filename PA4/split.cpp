@@ -16,7 +16,6 @@ vector<string> tokenSplit(string token){
 		
 		if ( validPunc(token, i) == true){ //begin looking for string of punc
 			i += puncScan(token, n, i);
-			//cout << "Inserting puncs: " << token.substr(n,i-n) << endl;
 			elements.push_back(token.substr(n,i-n)); //add substring of beginning index to incremented index
 			n = i; //n captures index previous i before i increments
 		}
@@ -25,7 +24,6 @@ vector<string> tokenSplit(string token){
 }
 			
 vector<string> capitalCheck(vector<string> elements){
-	//TODO: Before sorting, check all capitalization rules
 	//If 1)Capital, 2)notAcronym, 3)noDigit, 4)first word of sentence
 	//Mark with +
 	vector<string> newVec;
@@ -34,12 +32,6 @@ vector<string> capitalCheck(vector<string> elements){
 			newVec.push_back(elements[i]);
 			continue;
 		}
-		/*
-		if ((elements[i] == "I" || elements[i] == "A") && elements[i].size() == 1){
-			newVec.push_back("+" + elements[i]);
-			continue;
-		}*/
-        
 		if ( i == 0 && isupper(elements[i][0]) && isAcro(elements[i]) == false && hasDigit(elements[i]) == false) {
 			newVec.push_back("+" + elements[i]);
 			continue;
@@ -120,12 +112,6 @@ size_t puncScan(string token, size_t start, size_t index){
 		if (isalpha(token[i]) || isdigit(token[i])){
 			break;
 		}
-		/*if (token[i] == '.' && isdigit(token[i]) && validPunc(token,i-1) == 0 ){
-            break;
-        }
-        if ((token[i] == '.') && (isdigit(token[i+1])) && counter > 0){
-            break;
-        }*/
 	}
 	return counter;
 }
