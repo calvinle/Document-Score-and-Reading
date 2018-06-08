@@ -26,3 +26,5 @@ not one of {‘w’, ‘x’ or ‘y’} <br/>
 2. The string is only two characters long, and is a vowel followed by a non-vowel
 • A word is called short if both (1) it ends in a short syllable and (2) its Region1 is empty.
 For example, bed, shed, and shred are short words, but bead, embed and beds are not. <br/>
+
+If a word meets none of the criteria for Step N, it will be carried over to Step N+1.
