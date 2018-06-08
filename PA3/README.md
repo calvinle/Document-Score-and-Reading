@@ -10,7 +10,7 @@ should be considered a single word.<br/>
 • A period does not break a string if it occurs both (1) before a digit and (2) after a digit or
 a space. 2.0 is a single string; so is .01<br/>
 
-Capitalization:
+Capitalization:<br/>
 If the first letter in a word is uncapitalized, nothing is changed (e.g. it remains
 uncapitalized). If the first letter of a word is capitalized and it is not the first word in a sentence,
 then again nothing is changed (e.g. it remains capitalized). If a word is an acronym, its
