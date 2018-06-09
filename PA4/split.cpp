@@ -4,20 +4,20 @@
 using namespace std;
 
 vector<string> tokenSplit(string token){
-	vector<string> elements; //returning new vector of broken vectors
-	size_t i = 0; //index to be manually incremented
-	size_t n = 0; //second var n to capture previous i before it gets incremented
-	while (i != token.size()){ //until index reaches end of token	
+	vector<string> elements;
+	size_t i = 0;
+	size_t n = 0;
+	while (i != token.size()){
 		if ( isalpha(token[n]) || isdigit(token[n]) || (token[n] == '\'') ){ //alphaNum or '
 			i += alphaNumScan(token, n, i);	
-			elements.push_back(token.substr(n,i-n)); //add substring of beginning index to incremented index
-			n = i; //n captures index previous i before i increments
+			elements.push_back(token.substr(n,i-n));
+			n = i;
 		}
 		
-		if ( validPunc(token, i) == true){ //begin looking for string of punc
+		if ( validPunc(token, i) == true){
 			i += puncScan(token, n, i);
-			elements.push_back(token.substr(n,i-n)); //add substring of beginning index to incremented index
-			n = i; //n captures index previous i before i increments
+			elements.push_back(token.substr(n,i-n));
+			n = i;
 		}
 	}
 	return elements;
@@ -74,7 +74,7 @@ size_t puncScan(string token, size_t start, size_t index){
 		if ((token[i] == '.') && (isdigit(token[i+1])) && counter==0){ //handle cases similar to .01
             counter+=1;
 			i+=1;
-			while (validPunc2(token, i) != 1){//while not punc //.9.9.39.8p.
+			while (validPunc2(token, i) != 1){
 				if ( token[i] == '.' && isalpha(token[i-1]) && i == token.size()-1 ){
 					counter--;
 					break;
