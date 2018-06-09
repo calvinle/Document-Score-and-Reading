@@ -1,7 +1,6 @@
 #include "word.h"
 #include <string>
 #include <iostream>
-using namespace std;
 
 void step1(string &word){
     
@@ -490,7 +489,7 @@ bool shortWord(string s){
 }
 
 string preceder(string s, size_t i){
-	return s.substr(0,i+1); //return substring from 0 with i+1 chars (inclusive)
+	return s.substr(0,i+1);
 }
 
 bool liEnding(string s){
