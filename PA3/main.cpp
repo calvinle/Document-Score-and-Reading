@@ -6,17 +6,17 @@
 #include <algorithm>
 #include "word.h"
 #include "split.h"
-using namespace std;
+
 
 int main(int argc, char* argv[]) {
 	ifstream inFile(argv[1]); //Take in input file
 	ifstream excFile(argv[2]); //file of exceptions
 	if (!inFile) {
-		cerr << "Error, file required!\n";
+		std::cerr << "Error, file required!\n";
 		return -1;
 	}
 	if ( inFile.peek() == std::ifstream::traits_type::eof() ){
-		cerr << "Error, empty file!\n";
+		std::cerr << "Error, empty file!\n";
  	 	return -1;
 	}
 	
@@ -28,8 +28,8 @@ int main(int argc, char* argv[]) {
 		string token;
 
 		while( ss >> token ){
-			vector<string> sent = tokenSplit(token); //create vector of broken up tokens
-			for (size_t i=0; i < sent.size(); i++){ words.push_back(sent[i]); } //add them all to new vector
+			vector<string> sent = tokenSplit(token);
+			for (size_t i=0; i < sent.size(); i++){ words.push_back(sent[i]); }
 		}
 		if (inFile.eof()){ break; }	
 	}
@@ -42,7 +42,6 @@ int main(int argc, char* argv[]) {
 		return -1;
 	}
 	
-	
 	for (size_t i=0; i < newWords.size(); i++){
 		int dup = 1;	//First encounter of word = 1
 		for (size_t j=i+1; j < newWords.size(); j++){
@@ -53,8 +52,5 @@ int main(int argc, char* argv[]) {
 		}
 		if (newWords[i] != ""){ cout << newWords[i] << " " << dup << endl; }
 	}
-	
-	
-
 	return 0;
 }
