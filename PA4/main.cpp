@@ -6,17 +6,16 @@
 #include <algorithm>
 #include "word.h"
 #include "split.h"
-using namespace std;
 
 int main(int argc, char* argv[]) {
 	ifstream inFile(argv[1]); //Take in input file
 	ifstream excFile(argv[2]); //file of exceptions
 	if (!inFile) {
-		cerr << "Error, file required! LOL\n";
+		std::cerr << "Error, file required! LOL\n";
 		return -1;
 	}
 	if ( inFile.peek() == std::ifstream::traits_type::eof() ){
-		cerr << "Error, empty file!\n";
+		std::cerr << "Error, empty file!\n";
  	 	return -1;
 	}
 	
@@ -37,7 +36,7 @@ int main(int argc, char* argv[]) {
 	
 	sort(newWords.begin(), newWords.end());
 	if (newWords.empty()) {
-		cout << "Nothing!" << endl;
+		std::cout << "Nothing!" << endl;
 		return -1;
 	}
 	
