@@ -111,7 +111,7 @@ int main(int argc, char* argv[]) {
 		for (size_t i = 0; i < newWords.size(); i++){
 			if (newWords[i][0] != '+' && isAcro(newWords[i]) == false && 
 			hasDigit(newWords[i]) == false && newWords[i].size() > 2){
-				stemAlg(newWords[i]);
+				step1(newWords[i]);
 			}
 		}
 		
