@@ -27,13 +27,12 @@ int main(int argc, char* argv[]) {
 		istringstream ss(line);
 		string token;
 
-		while( ss >> token ){	//token separated from white spaces
-			vector<string> sent = tokenSplit(token); //create vector of broken up tokens
-			for (size_t i=0; i < sent.size(); i++){ words.push_back(sent[i]); } //add them all to new vector
+		while( ss >> token ){
+			vector<string> sent = tokenSplit(token);
+			for (size_t i=0; i < sent.size(); i++){ words.push_back(sent[i]); }
 		}
 		if (inFile.eof()){ break; }	
 	}
-	
 	vector<string> newWords = capitalCheck(words);
 	
 	sort(newWords.begin(), newWords.end());
@@ -43,7 +42,7 @@ int main(int argc, char* argv[]) {
 	}
 	
 	for (size_t i=0; i < newWords.size(); i++){
-		int dup = 1;	//First encounter of word = 1
+		int dup = 1;
 		for (size_t j=i+1; j < newWords.size(); j++){
 			if (newWords[i] == newWords[j]){
 				newWords[j].erase();
