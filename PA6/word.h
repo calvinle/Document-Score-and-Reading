@@ -2,8 +2,6 @@
 #include <vector>
 using namespace std;
 
-void stemAlg(string &word);
-
 bool Vowel(string s, size_t i);
 
 bool Consanant(string s, size_t i);
