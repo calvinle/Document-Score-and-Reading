@@ -5,41 +5,31 @@ using namespace std;
 
 vector<string> tokenSplit(string token){
 	vector<string> elements; //returning new vector of broken vectors
-	size_t i = 0; //index to be manually incremented
-	size_t n = 0; //second var n to capture previous i before it gets incremented
-	while (i != token.size()){ //until index reaches end of token	
+	size_t i = 0;
+	size_t n = 0;
+	while (i != token.size()){
 		if ( isalpha(token[n]) || isdigit(token[n]) || (token[n] == '\'') ){ //alphaNum or '
 			i += alphaNumScan(token, n, i);	
-			elements.push_back(token.substr(n,i-n)); //add substring of beginning index to incremented index
-			n = i; //n captures index previous i before i increments
+			elements.push_back(token.substr(n,i-n));
+			n = i;
 		}
 		
 		if ( validPunc(token, i) == true){ //begin looking for string of punc
 			i += puncScan(token, n, i);
-			//cout << "Inserting puncs: " << token.substr(n,i-n) << endl;
-			elements.push_back(token.substr(n,i-n)); //add substring of beginning index to incremented index
-			n = i; //n captures index previous i before i increments
+			elements.push_back(token.substr(n,i-n));
+			n = i;
 		}
 	}
 	return elements;
 }
 			
 vector<string> capitalCheck(vector<string> elements){
-	//TODO: Before sorting, check all capitalization rules
-	//If 1)Capital, 2)notAcronym, 3)noDigit, 4)first word of sentence
-	//Mark with +
 	vector<string> newVec;
 	for (size_t i=0; i < elements.size(); i++){
 		if ( isAcro(elements[i]) == true || hasDigit(elements[i]) == true){
 			newVec.push_back(elements[i]);
 			continue;
-		}
-		/*
-		if ((elements[i] == "I" || elements[i] == "A") && elements[i].size() == 1){
-			newVec.push_back("+" + elements[i]);
-			continue;
-		}*/
-        
+		} 
 		if ( i == 0 && isupper(elements[i][0]) && isAcro(elements[i]) == false && hasDigit(elements[i]) == false) {
 			newVec.push_back("+" + elements[i]);
 			continue;
@@ -82,7 +72,7 @@ size_t puncScan(string token, size_t start, size_t index){
 		if ((token[i] == '.') && (isdigit(token[i+1])) && counter==0){ //handle cases similar to .01
             counter+=1;
 			i+=1;
-			while (validPunc2(token, i) != 1){//while not punc //.9.9.39.8p.
+			while (validPunc2(token, i) != 1){
 				if ( token[i] == '.' && isalpha(token[i-1]) && i == token.size()-1 ){
 					counter--;
 					break;
@@ -120,12 +110,6 @@ size_t puncScan(string token, size_t start, size_t index){
 		if (isalpha(token[i]) || isdigit(token[i])){
 			break;
 		}
-		/*if (token[i] == '.' && isdigit(token[i]) && validPunc(token,i-1) == 0 ){
-            break;
-        }
-        if ((token[i] == '.') && (isdigit(token[i+1])) && counter > 0){
-            break;
-        }*/
 	}
 	return counter;
 }
