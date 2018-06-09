@@ -4,18 +4,17 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
-using namespace std;
 
 int main(int argc, char* argv[]) {
     
     
 	ifstream inFile(argv[1]); //Take in input file
 	if (!inFile) {
-		cerr << "Error, file required!\n";
+		std::cerr << "Error, file required!\n";
 		return -1;
 	}
 	if ( inFile.peek() == std::ifstream::traits_type::eof() ){
-		cerr << "Error, empty file!\n";
+		std::cerr << "Error, empty file!\n";
  	 	return -1;
 	}
 
@@ -44,12 +43,12 @@ int main(int argc, char* argv[]) {
 			}
 		}
 		if (words[i] != ""){
-			cout << words[i] << " " << dup << endl;
+			std::cout << words[i] << " " << dup << endl;
 		}
 		
 	}
 	if (words.empty()){
-		cerr << "Empty" << endl;
+		std::cerr << "Empty" << endl;
 		return -1;
 	}
     return 0;    
