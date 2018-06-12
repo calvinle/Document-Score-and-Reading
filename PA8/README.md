@@ -10,5 +10,5 @@ defined by the Coleman-Liau Index) allowed and the highest reading level. It is 
 third value is greater than the fourth.<br/><br/>
 The program will analyze the reading level of every background document, as in PA7. Then,
 for documents whose reading level is within the target range (as determined by the 3rd and 4th
-arguments), compare them to the target document using TFIDF (as in PA8). The filename of the most similar document to the 
+arguments), compare them to the target document using TFIDF (as in PA7). The filename of the most similar document to the 
 target document that is within the target reading will print to std:cout.
